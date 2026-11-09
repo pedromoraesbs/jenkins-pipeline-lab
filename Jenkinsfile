@@ -20,6 +20,8 @@ pipeline {
                 echo "Projeto: ${env.APP_NAME}"
                 echo "Build: ${env.BUILD_NUMBER}"
                 echo "Ambiente: ${params.AMBIENTE}"
+  
+                echo 'VERSAO 2: Jenkinsfile atualizado diretamente pelo GitHub!'
             }
         }
 
