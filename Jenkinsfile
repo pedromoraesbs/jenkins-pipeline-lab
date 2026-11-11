@@ -31,15 +31,16 @@ pipeline {
                 echo 'Build concluido!'
             }
         }
-     
+        
         stage('Test') {
             steps {
                 echo 'Iniciando testes do projeto...'
         
-                sh 'test -f arquivo-inexistente.txt'
+                sh 'test -f README.md'
+                sh 'test -f Jenkinsfile'
         
-                echo 'Arquivo encontrado!'
-                echo 'Todos os testes passaram!'
+                echo 'Todos os arquivos obrigatorios foram encontrados!'
+                echo 'Testes concluidos com sucesso!'
             }
         }
 
