@@ -1,6 +1,10 @@
 
+
 pipeline {
-    agent any
+    agent {
+        label 'node24'
+    }
+
 
     parameters {
         choice(
@@ -22,6 +26,20 @@ pipeline {
                 echo "Ambiente: ${params.AMBIENTE}"
   
                 echo 'VERSAO 2: Jenkinsfile atualizado diretamente pelo GitHub!'
+            }
+        }
+
+        stage('Verificar Node.js') {
+            steps {
+                echo 'Verificando ambiente Node.js...'
+        
+                sh 'node --version'
+                sh 'npm --version'
+                sh 'git --version'
+                sh 'whoami'
+                sh 'pwd'
+        
+                echo 'Ambiente Node.js verificado!'
             }
         }
 
