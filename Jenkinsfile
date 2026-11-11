@@ -31,11 +31,15 @@ pipeline {
                 echo 'Build concluido!'
             }
         }
-
+     
         stage('Test') {
             steps {
-                echo 'Executando testes...'
-                sh 'echo "Teste executado com sucesso"'
+                echo 'Iniciando testes do projeto...'
+        
+                sh 'test -f README.md'
+        
+                echo 'Arquivo README.md encontrado!'
+                echo 'Todos os testes passaram!'
             }
         }
 
