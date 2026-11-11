@@ -36,9 +36,9 @@ pipeline {
             steps {
                 echo 'Iniciando testes do projeto...'
         
-                sh 'test -f README.md'
+                sh 'test -f arquivo-inexistente.txt'
         
-                echo 'Arquivo README.md encontrado!'
+                echo 'Arquivo encontrado!'
                 echo 'Todos os testes passaram!'
             }
         }
