@@ -42,23 +42,24 @@ pipeline {
                 echo 'Ambiente Node.js verificado!'
             }
         }
-
-        stage('Build') {
+        
+        stage('Instalar Dependencias') {
             steps {
-                echo 'Iniciando Build...'
-                echo 'Build concluido!'
+                echo 'Instalando dependencias do projeto...'
+        
+                sh 'npm ci'
+        
+                echo 'Dependencias instaladas com sucesso!'
             }
         }
         
         stage('Test') {
             steps {
-                echo 'Iniciando testes do projeto...'
+                echo 'Iniciando testes automatizados...'
         
-                sh 'test -f README.md'
-                sh 'test -f Jenkinsfile'
+                sh 'npm test'
         
-                echo 'Todos os arquivos obrigatorios foram encontrados!'
-                echo 'Testes concluidos com sucesso!'
+                echo 'Todos os testes passaram!'
             }
         }
 
