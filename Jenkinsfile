@@ -63,6 +63,20 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                echo 'Iniciando o Build da aplicacao...'
+        
+                sh 'npm run build'
+        
+                echo 'Verificando arquivo gerado...'
+        
+                sh 'test -f dist/calculadora.js'
+        
+                echo 'Build finalizado com sucesso!'
+            }
+        }
+
         stage('Deploy') {
             when {
                 expression {
