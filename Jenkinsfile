@@ -5,6 +5,12 @@ pipeline {
         label 'node24'
     }
 
+    options {
+        buildDiscarder(logRotator(
+            numToKeepStr: '20',
+            artifactNumToKeepStr: '5'
+        ))
+    }
 
     parameters {
         choice(
