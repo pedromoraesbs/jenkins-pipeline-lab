@@ -110,6 +110,10 @@ pipeline {
     post {
         always {
             echo 'Pipeline finalizado!'
+            
+            echo 'Limpando workspace do agente...'
+            deleteDir()
+            echo 'Workspace limpo com sucesso!'
         }
 
         success {
