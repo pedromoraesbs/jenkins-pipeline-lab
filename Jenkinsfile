@@ -77,6 +77,16 @@ pipeline {
             }
         }
 
+        stage('Arquivar Artefato') {
+            steps {
+                echo 'Arquivando arquivo gerado pelo Build...'
+        
+                archiveArtifacts artifacts: 'dist/calculadora.js', fingerprint: true
+        
+                echo 'Artefato arquivado com sucesso!'
+            }
+        }
+
         stage('Deploy') {
             when {
                 expression {
